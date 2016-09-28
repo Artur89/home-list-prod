@@ -12,7 +12,7 @@ let initialState = {
 	}],
 	user: {
 		login: 'artur',
-		id: 30
+		id: 13
 	}
 }
 
