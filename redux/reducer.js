@@ -14,7 +14,32 @@ let reducer = function(state, action) {
 					id: getId(state)
 				}, ...state.todos]
 			})
-			break;
+			break
+
+		case 'TOGGLE_COMPLETED':
+			return Object.assign({}, state, {
+				todos: state.todos.map((todo) => {
+					return todo.id === action.id ? Object.assign({}, todo, {completed: !todo.completed}) : todo
+				})
+			})
+			break
+
+		case 'DELETE_TODO':
+			return Object.assign({}, state, {
+				todos: state.todos.filter((todo) => { 
+					return todo.id !== action.id
+				})
+			})
+			break
+
+		case 'CREATE_USER_ID':
+			return Object.assign({}, state, {
+				user: {
+					login: state.user.login,
+					id: action.id
+				}
+			})
+			break
 
 		default:
 			return state
