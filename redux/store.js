@@ -42,11 +42,15 @@ let initialState = {
 		]
 	},
 	product: {
+		error: null,
+		fetching: false,
+		fetched: false,
 		data: {
-			id: 'ID',
-			name: 'Name',
-			description: 'Description',
-			details: 'Details'
+			"__type":"type",
+			"Opt":"",
+			"Number":"2225A",
+			"Name":"HP Thinkjet Printer",
+			"Type":"printer"
 		}
 	}
 }

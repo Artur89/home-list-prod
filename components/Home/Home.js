@@ -10,9 +10,13 @@ class Home extends Component {
 		const { fetchList } = this.props.actions;
 
 		return (
-			<div className="home">
-				<h1>Homest</h1>
-				<Link to="list" onClick={fetchList}>Get list</Link>
+			<div className="sm15">
+				<div className="home">
+					<div className="container">
+						<h1>Homest</h1>
+						<Link to="list" onClick={fetchList}>Get list</Link>
+					</div>
+				</div>
 			</div>
 		);
 	}
