@@ -7,6 +7,10 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import store from '../redux/store';
 
+// Router
+import { syncHistoryWithStore } from 'react-router-redux';
+const history = syncHistoryWithStore(hashHistory, store);
+
 // Components
 import Layout from '../components/Layout/Layout';
 import Home from '../components/Home/Home';
@@ -24,7 +28,7 @@ const routes = (
 
 render(
 	<Provider store={store}>
-		<Router history={hashHistory}>
+		<Router history={history}>
 			{ routes }
 		</Router>
 	</Provider>,

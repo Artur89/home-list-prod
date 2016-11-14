@@ -1,7 +1,7 @@
-import { applyMiddleware, compose, createStore } from 'redux'
-import rootReducer from './reducers'
-import logger from 'redux-logger'
-import thunk from 'redux-thunk'
+import { applyMiddleware, compose, createStore } from 'redux';
+import rootReducer from './reducers';
+import logger from 'redux-logger';
+import thunk from 'redux-thunk';
 
 // Initial store state
 let initialState = {
@@ -58,10 +58,10 @@ let initialState = {
 // Add middleware
 let finalCreateStore = compose(
 	applyMiddleware(thunk, logger())
-)(createStore)
+)(createStore);
 
 function configureStore(initialState = { home: {}, list: {}, product: {} }) {
-	return finalCreateStore(rootReducer, initialState)
+	return finalCreateStore(rootReducer, initialState);
 }
 
 export default configureStore(initialState);
