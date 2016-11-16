@@ -1,11 +1,13 @@
 {
-  "name": "todo",
+  "name": "home-list-prod",
   "version": "1.0.0",
   "description": "",
+  "author": "Artur Mihno",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "nodemon server/index.js --ignore components"
+    "serve": "nodemon server/index.js --ignore components",
+    "start": "node server/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -26,7 +28,8 @@
     "webpack-hot-middleware": "^2.12.2",
     "react-router": "~3.0.0",
     "axios": "~0.15.2",
-    "react-router-redux": "~4.0.7"
+    "react-router-redux": "~4.0.7",
+    "mongodb": "~2.2.11"
   },
   "devDependencies": {
     "redux-logger": "^2.6.1"

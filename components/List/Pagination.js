@@ -3,21 +3,22 @@ import { Link } from 'react-router';
 
 class Pagination extends Component {
 
+	getListChunk(num) {
+		this.props.actions.fetchList('all', num)
+	}
+
 	render() {
 		const { products, query } = this.props;
-		const { offset = 0, limit = 20 } = query;
-		let paginationPage = 0;
+		const { data, pagination } = products;
+		
+		let arr = [];
+		for(var i = pagination.first_page; i <= pagination.last_page; i++) {
+			arr.push(<a onClick={getListChunk.bind(this, i)}>{i}</a>)
+		}
 
 		return (
 			<ul>
-				{
-					products.map((el, index) => {
-						if(paginationPage < Math.floor(products.length / limit) && index >= (offset * limit)) {
-							paginationPage++;
-							return <Link activeClassName="is-active" to={"list?offset=" + (paginationPage * limit) + "&limit=" + limit} key={"pagination-" + paginationPage}>{paginationPage} </Link>;
-						}
-					})
-				}
+				{ arr }
 			</ul>
 		)
 	}

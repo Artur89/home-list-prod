@@ -14,6 +14,7 @@ class List extends Component {
 	
 	render() {
 		const { fetchProduct } = this.props.actions;
+		const { products } = this.props.list;
 		const { offset = 0, limit = 20 } = this.props.location.query;
 		const goToProduct = (num) => {
 			fetchProduct(num);
@@ -30,7 +31,7 @@ class List extends Component {
 					<h1>List</h1>
 					<ul className="product-list">
 						{
-							this.props.list.products.map((el, i) => {
+							products.data.map((el, i) => {
 								if(i >= parseInt(offset) && i < (parseInt(offset) + parseInt(limit))) {
 									count++;
 									if(count == limit) {
@@ -47,7 +48,7 @@ class List extends Component {
 							})
 						}
 					</ul>
-					<Pagination products={this.props.list.products} query={this.props.location.query} />
+					<Pagination products={products} query={this.props.location.query} actions={this.props.actions} />
 				</div>
 			</div>
 		</div>

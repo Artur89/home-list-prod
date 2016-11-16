@@ -2,13 +2,13 @@ import axios from "axios";
 
 const actions = {
 
-	fetchList: function(sel) {
+	fetchList: function(sel, page, limit) {
 		return function(dispatch) {
 			window.merchAllPages.loader.show();
 			dispatch({type: 'FETCH_LIST'});
-			axios.get('/listData.json')
+			axios.post('/data/list/' + sel + '/' + page + '/' + limit)
 				.then((res) => {
-					dispatch({type: 'FETCH_LIST_FULFILLED', 'payload': res.data.d});
+					dispatch({type: 'FETCH_LIST_FULFILLED', 'payload': res.data});
 					window.merchAllPages.loader.hide();
 				})
 				.catch((err) => {
@@ -21,7 +21,7 @@ const actions = {
 		return function(dispatch) {
 			window.merchAllPages.loader.show();
 			dispatch({type: 'FETCH_PRODUCT'});
-			axios.get('/products/'+num+'.json')
+			axios.post('/data/product/' + num)
 				.then((res) => {
 					dispatch({type: 'FETCH_PRODUCT_FULFILLED', 'payload': res.data});
 					window.merchAllPages.loader.hide();

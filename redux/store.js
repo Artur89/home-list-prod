@@ -24,22 +24,25 @@ let initialState = {
 		]
 	},
 	list: {
-		products: [
-			{
-				"__type":"type",
-				"Opt":"",
-				"Number":"2225A",
-				"Name":"HP Thinkjet Printer",
-				"Type":"printer"
-			},
-			{
-				"__type":"type",
-				"Opt":"",
-				"Number":"2225B",
-				"Name":"HP Thinkjet Printer",
-				"Type":"printer"
-			}
-		]
+		products: {
+			data: [
+				{
+					"__type":"type",
+					"Opt":"",
+					"Number":"2225A",
+					"Name":"HP Thinkjet Printer",
+					"Type":"printer"
+				},
+				{
+					"__type":"type",
+					"Opt":"",
+					"Number":"2225B",
+					"Name":"HP Thinkjet Printer",
+					"Type":"printer"
+				}
+			],
+			pagination: {}
+		}
 	},
 	product: {
 		error: null,

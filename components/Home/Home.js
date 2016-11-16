@@ -7,6 +7,7 @@ import actions from '../../redux/actions';
 class Home extends Component {
 	
 	render() {
+		const { sel } = this.props.params;
 		const { fetchList } = this.props.actions;
 
 		return (
@@ -14,7 +15,7 @@ class Home extends Component {
 				<div className="home">
 					<div className="container">
 						<h1>Homest</h1>
-						<Link to="list" onClick={fetchList}>Get list</Link>
+						<Link to="list" onClick={fetchList.bind(this, 'all')}>Get list</Link>
 					</div>
 				</div>
 			</div>
