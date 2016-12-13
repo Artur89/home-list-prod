@@ -4,9 +4,13 @@ services:
     build: ./app
     ports:
       - "3000:8080"
+    depends_on:
+      - mongodata
     links:
       - mongo
   mongodata:
+    depends_on:
+      - mongo
     build: .
   mongo:
     image: mongo
